@@ -10,12 +10,12 @@
 <body>
     <script>
         let age = prompt("age");
-        if (age <= 18) {
-            console.log("Eligible to vote");
-        } else if (age == 21) {
+        if (age >= 25) {
+            console.log("can rent a car");
+        } else if (age >= 21) {
             console.log("can drink alcohol");
-        } else if (age >= 25) {
-            console.log("Can rent a car");
+        } else if (age >= 18) {
+            console.log("Eligible for vote");
         } else {
             console.log("you are not eligible for these activities");
         }

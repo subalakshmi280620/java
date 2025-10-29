@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatc Timer</title>
+    <style>
+        body {
+            min-height: 100vh;
+        }
+
+        #realtime {
+            font-size: 30px;
+            color: darkgreen;
+        }
+        p{
+           text-align: center;
+           font-size: 25px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            background-color: orangered;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-right: 5px;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p><span id="realtime">96</span>s</p>
+    <section class="buttons">
+        <button id="starttimer">Start</button>
+        <button id="stoptimer" id="stop">Stop</button>
+        <button id="resettimer" id="reset">Reset</button>
+    </section>
+    <script src="mini3day9.js"> </script>
+</body>
+
+</html>

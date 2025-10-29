@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #Counter {
+            color: darkblue;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #wordcounter {
+            border: 2px solid black;
+            padding: 5px;
+        }
+
+        p {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #count {
+            color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1 id="Counter">Word Counter</h1>
+        <textarea id="wordcounter" rows="10" cols="30" placeholder="start typing..."></textarea>
+        <p>WordCount:<span id="count">0</span></p>
+    </section>
+    <script src="mini2day9.js"></script>
+</body>
+
+</html>

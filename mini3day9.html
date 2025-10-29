@@ -10,14 +10,16 @@
             min-height: 100vh;
         }
 
+        p {
+            text-align: center;
+            font-size: 25px;
+        }
+
         #realtime {
             font-size: 30px;
             color: darkgreen;
         }
-        p{
-           text-align: center;
-           font-size: 25px;
-        }
+
         .buttons {
             display: flex;
             justify-content: center;
@@ -37,11 +39,11 @@
 </head>
 
 <body>
-    <p><span id="realtime">96</span>s</p>
+    <p><span id="timerDisplay">96</span>s</p>
     <section class="buttons">
-        <button id="starttimer">Start</button>
-        <button id="stoptimer" id="stop">Stop</button>
-        <button id="resettimer" id="reset">Reset</button>
+        <button id="startButton">Start</button>
+        <button id="stopButton">Stop</button>
+        <button id="resetButton">reset</button>
     </section>
     <script src="mini3day9.js"> </script>
 </body>

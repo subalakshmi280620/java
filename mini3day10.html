@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click counter app</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin:0;
+        }
+        section{
+            background-color:white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1{
+            color:black;
+            margin-bottom: 20px;
+        }
+        #countdown{
+            color:#007bff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        button{
+            padding:10px 20px;
+            margin:10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            background-color: #007bff;
+            color:white;
+        }
+        button:hover{
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>Click Counter App</h1>
+    <button id="starttimer">Increase Countdown</button>
+    <button id="resettimer">Reset</button>
+    <p>Counter:<span id="countdown"></span></p>
+    </section>
+   <script src="mini3day10.js"></script>
+</body>
+
+</html>

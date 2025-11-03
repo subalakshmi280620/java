@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart with Total</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .product-list,
+        .cart-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Product List</h2>
+    <input type="text" id="search" placeholder="Search for a product" onkeyup="filterProducts()">
+    <ul id="productList"></ul>
+    <h2>Shopping Cart</h2>
+    <ul id="cartList"></ul>
+    <p><strong>Total Price: $<span id="cartTotal">0.00</span></strong></p>
+    <button onclick="clearCart()">Clear Cart</button>
+    <script src="miniday11.js"></script>
+</body>
+
+</html>

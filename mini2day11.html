@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Expense Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .input-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 48%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f1f3f6;
+      padding: 8px;
+      margin-bottom: 8px;
+      border-radius: 5px;
+    }
+
+    li button {
+      background: #dc3545;
+      border: none;
+      padding: 5px 8px;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+    }
+
+    li button:hover {
+      background: #b52a36;
+    }
+
+    .total {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2> Expense Tracker</h2>
+
+    <div class="input-group">
+      <input type="text" id="expenseName" placeholder="Expense name" />
+      <input type="number" id="expenseAmount" placeholder="Amount" />
+    </div>
+
+    <button id="addExpense">Add Expense</button>
+
+    <ul id="expenseList"></ul>
+
+    <div class="total">Total: ₹<span id="totalAmount">0</span></div>
+  </div>
+
+  <script src="mini2day11.js"></script>
+</body>
+</html>

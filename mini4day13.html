@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #121212;
+            color: #fff;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffcc00;
+        }
+
+        .search-container {
+            margin: 20px 0;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-left: 5px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ffdd33;
+        }
+
+        .movie-card {
+            margin-top: 30px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            display: inline-block;
+            text-align: left;
+            width: 300px;
+        }
+
+        .movie-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .error {
+            color: #ff5555;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Movie Search App</h1>
+
+    <div class="search-container">
+        <input type="text" id="movieInput" placeholder="Enter movie title..." />
+        <button id="searchBtn">Search</button>
+    </div>
+
+    <div id="movieResult" class="movie-card"></div>
+
+    <script src="mini4day13.js"></script>
+</body>
+
+</html>

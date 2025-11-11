@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fetch Users Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        #users {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Fetch Users</h2>
+    <button onclick="fetchUsers()">Fetch Users</button>
+
+    <ul id="users"></ul>
+
+    <script>
+        async function fetchUsers() {
+            const url = "https://jsonplaceholder.typicode.com/users";
+            const usersList = document.getElementById("users");
+
+            usersList.innerHTML = ""; // Clear old results
+
+            try {
+                const response = await fetch(url);
+
+                // log successful response
+                console.log("Success:", response);
+
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+
+                const data = await response.json();
+
+                data.forEach(user => {
+                    const li = document.createElement("li");
+                    li.textContent = `${user.name} - ${user.email}`;
+                    usersList.appendChild(li);
+                });
+
+            } catch (error) {
+                console.error("Error fetching users:", error);
+
+                // Store error in LocalStorage
+                localStorage.setItem("fetchError", error.message);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

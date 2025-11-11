@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Air Quality Checker</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: white;
+            color:black;
+            text-align: center;
+            padding: 20px;
+        }
+
+        select,
+        button {
+            padding: 8px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        .box {
+            background: #1c2733;
+            padding: 20px;
+            width: 300px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .aqi {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Check Air Quality</h1>
+
+    <!-- Dropdown -->
+    <select id="citySelect">
+        <option value="chennai">New York</option>
+        <option value="delhi">Delhi</option>
+        <option value="mumbai">Mumbai</option>
+        <option value="bangalore">Bangalore</option>
+        <option value="kolkata">Kolkata</option>
+    </select>
+
+    <button onclick="checkAQI()">Get AQI</button>
+
+    <!-- Result -->
+    <div class="box" id="resultBox" style="display:none;">
+        <h2 id="cityName"></h2>
+        <div class="aqi" id="aqiValue"></div>
+        <p id="healthMessage"></p>
+
+        <h3>Pollutants</h3>
+        <p id="pollutants"></p>
+    </div>
+
+    <script src="mini4day14.js"></script>
+
+</body>
+
+</html>

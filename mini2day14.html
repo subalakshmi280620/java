@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NASA Picture of the Day</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: white;
+            color:black;
+            text-align: center;
+        }
+
+        #media {
+            max-width: 90%;
+            margin-top: 20px;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>NASA Astronomy Picture of the Day</h1>
+
+    <!-- Date Selector -->
+    <input type="date" id="datePicker">
+    <button onclick="loadAPOD()">Get Picture</button>
+
+    <!-- Result Area -->
+    <h2 id="title"></h2>
+    <div id="media"></div>
+    <p id="description"></p>
+
+    <script src="mini2day14.js"></script>
+
+</body>
+
+</html>

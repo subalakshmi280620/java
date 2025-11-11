@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attendance System</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        input,
+        select,
+        button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+        }
+
+        th,
+        td {
+            border: 1px solid #aaa;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #007bff;
+            color: white;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>🧑‍💼 Employee Attendance Management System</h2>
+
+        <!-- Add Employee -->
+        <h3>Add Employee</h3>
+        <input type="text" id="empName" placeholder="Employee Name">
+        <input type="text" id="empID" placeholder="Employee ID">
+        <input type="text" id="department" placeholder="Department (HR, IT, Sales)">
+        <button onclick="addEmployee()">Add Employee</button>
+
+        <!-- Filters -->
+        <h3>Search, Filter & Sort</h3>
+        <input type="text" id="searchBox" placeholder="Search by name" onkeyup="displayEmployees()">
+
+        <select id="filterDepartment" onchange="displayEmployees()">
+            <option value="All">All Departments</option>
+            <option value="HR">HR</option>
+            <option value="IT">IT</option>
+            <option value="Sales">Sales</option>
+        </select>
+
+        <select id="filterStatus" onchange="displayEmployees()">
+            <option value="All">All Status</option>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+        </select>
+
+        <select id="sortOption" onchange="displayEmployees()">
+            <option value="name">Sort by Name</option>
+            <option value="attendance">Sort by Attendance Count</option>
+        </select>
+
+        <!-- Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Department</th>
+                    <th>Attendance</th>
+                    <th>Present Count</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTable"></tbody>
+        </table>
+    </div>
+
+    <script>
+        // Load from LocalStorage
+        let employees = JSON.parse(localStorage.getItem("employees")) || [];
+
+        function saveToLocalStorage() {
+            localStorage.setItem("employees", JSON.stringify(employees));
+        }
+
+        // Add Employee
+        function addEmployee() {
+            const name = document.getElementById("empName").value.trim();
+            const empID = document.getElementById("empID").value.trim();
+            const department = document.getElementById("department").value.trim();
+
+            if (!name || !empID || !department) {
+                alert("Please fill all fields!");
+                return;
+            }
+
+            employees.push({
+                name,
+                empID,
+                department,
+                status: "Absent",
+                attendanceCount: 0
+            });
+
+            saveToLocalStorage();
+            clearForm();
+            displayEmployees();
+        }
+
+        function clearForm() {
+            document.getElementById("empName").value = "";
+            document.getElementById("empID").value = "";
+            document.getElementById("department").value = "";
+        }
+
+        // Mark Attendances
+        function markAttendance(index, newStatus) {
+            if (employees[index].status !== newStatus) {
+                if (newStatus === "Present") {
+                    employees[index].attendanceCount++;
+                }
+            }
+            employees[index].status = newStatus;
+
+            saveToLocalStorage();
+            displayEmployees();
+        }
+
+        // Display Employee Table
+        function displayEmployees() {
+            const table = document.getElementById("employeeTable");
+            const search = document.getElementById("searchBox").value.toLowerCase();
+            const depFilter = document.getElementById("filterDepartment").value;
+            const statusFilter = document.getElementById("filterStatus").value;
+            const sortType = document.getElementById("sortOption").value;
+
+            table.innerHTML = "";
+
+            let filtered = employees.filter(emp => {
+                const matchesName = emp.name.toLowerCase().includes(search);
+                const matchesDep = depFilter === "All" || emp.department === depFilter;
+                const matchesStatus = statusFilter === "All" || emp.status === statusFilter;
+
+                return matchesName && matchesDep && matchesStatus;
+            });
+
+            // Sort
+            if (sortType === "name") {
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (sortType === "attendance") {
+                filtered.sort((a, b) => b.attendanceCount - a.attendanceCount);
+            }
+
+            filtered.forEach((emp, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                <td>${emp.name}</td>
+                <td>${emp.empID}</td>
+                <td>${emp.department}</td>
+                <td>${emp.status}</td>
+                <td>${emp.attendanceCount}</td>
+                <td>
+                    <button onclick="markAttendance(${index}, 'Present')">Present</button>
+                    <button onclick="markAttendance(${index}, 'Absent')">Absent</button>
+                </td>
+            `;
+                table.appendChild(row);
+            });
+        }
+
+        displayEmployees(); // Initial load
+    </script>
+
+</body>
+
+</html>

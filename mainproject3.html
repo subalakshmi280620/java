@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Music Player</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+
+        .player {
+            width: 350px;
+            padding: 20px;
+            text-align: center;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .song-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .controls button {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #4a90e2;
+            color: white;
+        }
+
+        .controls button:hover {
+            background: #357ac6;
+        }
+
+        .volume-control {
+            margin-top: 15px;
+        }
+
+        .time {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="player">
+
+        <div class="song-title" id="songTitle">Song Title</div>
+
+        <audio id="audioPlayer"></audio>
+
+        <div class="controls">
+            <button onclick="prevSong()">⏮</button>
+            <button onclick="playSong()">▶</button>
+            <button onclick="pauseSong()">⏸</button>
+            <button onclick="stopSong()">⏹</button>
+            <button onclick="nextSong()">⏭</button>
+        </div>
+
+        <div class="volume-control">
+            <label>Volume:</label>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1">
+        </div>
+
+        <div class="time" id="timeDisplay">00:00 / 00:00</div>
+
+    </div>
+
+    <script src="mainproject3.js"> </script>
+
+</body>
+
+</html>

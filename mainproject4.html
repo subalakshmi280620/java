@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+
+        .carousel-container {
+            width: 500px;
+            position: relative;
+        }
+
+        .carousel {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: none;
+        }
+
+        .carousel img.active {
+            display: block;
+            animation: fade 0.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .buttons {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        button {
+            padding: 8px 14px;
+            background: #007bff;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005fcc;
+        }
+
+        .thumbnails {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .thumbnails img {
+            width: 70px;
+            height: 50px;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.6;
+            border: 2px solid transparent;
+            object-fit: cover;
+        }
+
+        .thumbnails img.active-thumb {
+            opacity: 1;
+            border-color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="carousel-container">
+
+        <div class="carousel" id="carousel">
+            <img src="photo.webp" class="active">
+            <img src="nature.jpg">
+            <img src="sea.avif">
+            <img src="dog.jpg">
+        </div>
+
+        <div class="buttons">
+            <button onclick="prevSlide()">⏮ Previous</button>
+            <button onclick="nextSlide()">Next ⏭</button>
+        </div>
+
+        <div class="thumbnails" id="thumbs">
+            <img src="photo.webp" class="active-thumb" onclick="goToSlide(0)">
+            <img src="nature.jpg" onclick="goToSlide(1)">
+            <img src="sea.avif" onclick="goToSlide(2)">
+            <img src="dog.jpg" onclick="goToSlide(3)">
+        </div>
+    </div>
+
+    <script src="mainproject4.js"></script>
+
+</body>
+
+</html>
